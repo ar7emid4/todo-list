@@ -9,7 +9,11 @@
     <div class="container">
         <div class="sidebar">
             <div class="lists">
-                <p class="list">Chores</p>
+                <p class="list" data-status="active">Chores</p>
+                <p class="list">Work</p>
+                <p class="list">Books</p>
+                <p class="list">asd kdsaokld k as;lkd askl;dkl ksad jj asj</p>
+                <p class="list">pdaspdksapofmdlkgifdsgpoa[doasod[pkaasj</p>
             </div>
 
             <footer class="sidebar-footer">
@@ -19,28 +23,40 @@
 
         <div class="main-content">
             <div class="list-content">
-                <h1 class="list-name">Chores</h1>
+                <header class="list-header">
+                    <h1 class="list-name">Chores</h1>
+                    <button class="delete-list-button">Delete list</button>
+                </header>
 
                 <div class="tasks">
-                    <div class="task">
-                        <input type="checkbox">
-                        <p class="task-name">Wash the dishes</p>
-                        <p class="task-priority">!!</p>
-                        <button class="task-delete-button">X</button>
+                    <div class="task-container">
+                        <div class="task-menu">
+                            <input type="checkbox">
+                            <p class="task-name" data-priority="2">Wash the dishes</p>
+                            <time class="task-due-date">19.12.2050</time>
+                            <button class="task-delete-button">Delete</button>
+                        </div>
                     </div>
 
-                    <div class="task">
-                        <input type="checkbox">
-                        <p class="task-name">Vacuum the carpet</p>
-                        <p class="task-priority">!</p>
-                        <button class="task-delete-button">X</button>
+                    <div class="task-container">
+                        <div class="task-menu">
+                            <input type="checkbox">
+                            <p class="task-name" data-priority="1" data-status="active">Vacuum the carpet</p>
+                            <button class="task-delete-button">Delete</button>
+                        </div>
+
+                        <p class="task-description">
+                            get the vacuum cleaner out of the closet, plug it in, vacuum the carpet
+                        </p>
                     </div>
 
-                    <div class="task">
-                        <input type="checkbox">
-                        <p class="task-name">Wash the windows</p>
-                        <p class="task-priority">!</p>
-                        <button class="task-delete-button">X</button>
+                    <div class="task-container">
+                        <div class="task-menu">
+                            <input type="checkbox">
+                            <p class="task-name" data-priority="3">Wash the windows</p>
+                            <time class="task-due-date">01.01.2777</time>
+                            <button class="task-delete-button">Delete</button>
+                        </div>
                     </div>
                 </div>
             </div>

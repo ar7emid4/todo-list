@@ -1,0 +1,204 @@
+html, body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    font-family: system-ui;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    background-color: rgb(230, 220, 220);
+}
+
+.lists {
+    margin-top: 70px;
+}
+
+.list {
+    font-size: 20px;
+    margin: 0;
+    padding: 10px 10px 10px 30px;
+    overflow-wrap: anywhere;
+    transition: 
+        background-color 0.25s,
+        padding 0.25s;
+}
+
+.list:hover {
+    background-color: lightcoral;
+    padding: 15px 10px 15px 30px;
+}
+
+.list[data-status="active"] {
+    background-color: lightcoral;
+    color: white;
+    padding: 15px 10px 15px 30px;
+}
+
+.new-list-button {
+    font-size: 26px;
+    padding: 15px;
+    width: 100%;
+    background-color: rgb(230, 220, 220);
+    border: none;
+    border-top: solid rgb(235, 225, 225) 3px;
+    transition: 
+        background-color 0.25s,
+        padding 0.25s;
+}
+
+.new-list-button:hover {
+    background-color: lightcoral;
+    padding: 25px;
+    border: none;
+}
+
+.main-content {
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgb(255, 246, 246);
+}
+
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.delete-list-button {
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-top: 70px;
+    height: 2em;
+    background-color: rgb(255, 246, 246);
+    border: none;
+    font-size: 18px;
+    padding: 0;
+    transition:
+        color 0.25s,
+        font-weight 0.5s;
+}
+
+.delete-list-button:hover {
+    color: red;
+    font-weight: 700;
+}
+
+.list-name {
+    font-size: 44px;
+    margin-left: 50px;
+    margin-top: 70px;
+    margin-right: 50px;
+    margin-bottom: 0;
+}
+
+.task-container {
+    border-bottom: solid rgba(235, 225, 225, 0.4) 3px;
+    transition: background-color 0.25s;
+}
+
+.task-container:hover {
+    background-color: rgba(240, 128, 128, 0.1);
+}
+
+.task-menu {
+    display: flex;
+}
+
+.task-menu input {
+    margin-left: 50px;
+    accent-color: lightcoral;
+}
+
+.task-menu input:checked ~ *, .task-menu input:checked + .task-name:before {
+    color: gray;
+}
+
+.task-name {
+    width: 80%;
+    margin-left: 50px;
+    position: relative;
+}
+
+.task-name[data-priority="1"]::before {
+    position: absolute;
+    left: -30px;
+    content: "!";
+    color: darkorange;
+    font-weight: 700;
+}
+
+.task-name[data-priority="2"]::before {
+    position: absolute;
+    left: -30px;
+    content: "!!";
+    color: darkorange;
+    font-weight: 700;
+}
+
+.task-name[data-priority="3"]::before {
+    position: absolute;
+    left: -30px;
+    content: "!!!";
+    color: darkorange;
+    font-weight: 700;
+}
+
+.task-due-date {
+    margin-left: 50px;
+    margin-right: 50px;
+    align-content: center;
+}
+
+.task-delete-button {
+    margin-left: auto;
+    margin-right: 50px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    font-size: 18px;
+    transition: 
+        color 0.25s,
+        font-weight 0.5s;
+}
+
+.task-menu .task-delete-button:hover {
+    color: red;
+    font-weight: 700;
+}
+
+.task-description {
+    color: gray;
+    margin-top: 0;
+    margin-left: 115px;
+    margin-right: 50px;
+}
+
+.new-task-button {
+    font-size: 26px;
+    padding: 15px;
+    width: 100%;
+    background-color: rgb(255, 246, 246);
+    border: none;
+    border-top: solid rgb(235, 225, 225) 3px;
+    transition: 
+        background-color 0.25s,
+        padding 0.25s;
+}
+
+.new-task-button:hover {
+    background-color: lightcoral;
+    padding: 25px;
+    border: none;
+}
