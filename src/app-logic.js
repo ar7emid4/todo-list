@@ -1,6 +1,6 @@
-class TodoItem {
-    constructor(title = "No title", description = "No description", dueDate = null, priority = 0) {
-        this.title = title;
+export class TodoItem {
+    constructor(name = "No name", description = "No description", dueDate = null, priority = 0) {
+        this.name = name;
         this.description = description;
         this.dueDate = dueDate;
         this.priority = priority;
@@ -8,34 +8,44 @@ class TodoItem {
 
     check = 0;
 
-    setTitle(newTitle) {
-        this.title = newTitle;
+    setName(newName) {
+        this.name = newName;
     }
+
+    getName() { return this.name };
 
     setDescription(newDescription) {
         this.description = newDescription;
     }
 
+    getDescription() { return this.description }
+
     setDueDate(newDueDate) {
         this.dueDate = newDueDate;
     }
+
+    getDueDate() { return this.dueDate };
 
     setPriority(newPriority) {
         this.priority = newPriority;
     }
 
+    getPriority() { return this.priority };
+
     toggleCheck() {
         this.check == 0 ? this.check = 1 : this.check = 0;
     }
 
+    getCheck() { return this.check };
+
     printTodoItem() {
-        console.log("Title: " + this.title + "\nDescription: " + this.description + "\nDue date " + this.dueDate + "\nPriority: " + this.priority + "\nCheck: " + this.check)
+        console.log("Name: " + this.name + "\nDescription: " + this.description + "\nDue date " + this.dueDate + "\nPriority: " + this.priority + "\nCheck: " + this.check)
     }
 }
 
-class TodoFolder {
-    constructor(title) {
-        this.title = title;
+export class TodoList {
+    constructor(name) {
+        this.name = name;
     }
 
     todoList = [];
@@ -49,8 +59,16 @@ class TodoFolder {
         this.todoList.splice(index, 1);
     }
 
-    printTodoFolder() {
-        console.log("Folder: " + this.title);
+    getTodoItem(index) {
+        return this.todoList[index];
+    }
+
+    getListName() { return this.name };
+
+    getListLength() { return this.todoList.length };
+
+    printTodoList() {
+        console.log("Folder: " + this.name);
         this.todoList.forEach((item) => {
             console.log("\n");
             item.printTodoItem();
@@ -58,14 +76,4 @@ class TodoFolder {
     }
 }
 
-let item1 = new TodoItem("dishes", "wash plates", "12.11.1990", 1);
-let item2 = new TodoItem("homework", "study math", "20.01.1949", 2);
-
-let folder = new TodoFolder("initial folder")
-
-folder.addTodoItem(item1);
-folder.addTodoItem(item2);
-
-folder.removeTodoItem(item1);
-
-folder.printTodoFolder();
+// export { TodoItem, TodoList }
