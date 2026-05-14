@@ -5,6 +5,7 @@ let item2 = new TodoItem("Vacuum the carpet", "get the vacuum cleaner out of the
 let item3 = new TodoItem("Wash the windows", undefined, "01.01.2777", 3);
 
 let lists = [new TodoList("Chores"), new TodoList("Work"), new TodoList("Books"), new TodoList("asd kdsaokld k as;lkd askl;dkl ksad jj asj"), new TodoList("pdaspdksapofmdlkgifdsgpoa[doasod[pkaasj")]
+let activeList = lists[0];
 lists[0].addTodoItem(item1);
 lists[0].addTodoItem(item2);
 lists[0].addTodoItem(item3);
@@ -28,6 +29,7 @@ function displayList(listObject) {
         document.querySelectorAll(".list").forEach( (list) => delete list.dataset.status);
         event.target.dataset.status = "active"
         displayListContent(listObject);
+        activeList = listObject;
     });
     listsContainer.appendChild(newListEntry);
 }
@@ -68,7 +70,9 @@ function displayListContent(listObject) {
         let checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.checked = itemObject.getCheck();
-        checkbox.addEventListener("change", (event) => itemObject.toggleCheck());
+        checkbox.addEventListener("change", (event) => {
+            itemObject.toggleCheck()
+        });
         taskMenu.appendChild(checkbox);
 
         let taskName = document.createElement("p");
@@ -93,7 +97,38 @@ function displayListContent(listObject) {
     }
 }
 
+let newListButton = document.querySelector(".new-list-button");
+let newListDialog = document.querySelector(".new-list-dialog");
+newListButton.addEventListener("click", () => newListDialog.show());
+let newListForm = document.querySelector(".new-list-form");
+newListForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    let formData = new FormData(newListForm);
+    let formEntries = (Object.fromEntries(formData));
+    newListDialog.close();
+    newListForm.reset();
 
+    lists.push(new TodoList(formEntries.newListName));
+    listsContainer.textContent = "";
+    for (let i = 0; i < lists.length; i++) {
+        displayList(lists[i]);
+    };
+});
+
+let newTaskButton = document.querySelector(".new-task-button");
+let newTaskDialog = document.querySelector(".new-task-dialog");
+newTaskButton.addEventListener("click", () => newTaskDialog.show());
+let newTaskForm = document.querySelector(".new-task-form");
+newTaskForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    let formData = new FormData(newTaskForm);
+    let formEntries = (Object.fromEntries(formData));
+    newTaskDialog.close();
+    newTaskForm.reset();
+
+    activeList.addTodoItem(new TodoItem(formEntries.newTaskName, formEntries.newTaskDescription, formEntries.newTaskDate, formEntries.newTaskPriority));
+    displayListContent(activeList);
+});
 
 
 

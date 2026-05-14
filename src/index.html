@@ -6,6 +6,29 @@
     <title>Title</title>
 </head>
 <body>
+
+    <dialog class="new-list-dialog" closedby="any">
+        <form class="new-list-form" method="dialog">
+            <label for="new-list-name">New list name:</label>
+            <input id="new-list-name" name="newListName" type="text">
+            <button class="new-list-submit-button">Add new list</button>
+        </form>
+    </dialog>
+
+    <dialog class="new-task-dialog" closedby="any">
+        <form class="new-task-form" method="dialog">
+            <label for="new-task-name">New task name:</label>
+            <input id="new-task-name" name="newTaskName" type="text">
+            <label for="new-task-description">New task description:</label>
+            <input id="new-task-description" name="newTaskDescription" type="text">
+            <label for="new-task-date">New task due date:</label>
+            <input id="new-task-date" name="newTaskDate" type="date">
+            <label for="new-task-priority">New task priority:</label>
+            <input id="new-task-priority" name="newTaskPriority" type="number" min="0" max="3">
+            <button class="new-list-submit-button">Add new task</button>
+        </form>
+    </dialog>
+
     <div class="container">
         <div class="sidebar">
             <div class="lists">
